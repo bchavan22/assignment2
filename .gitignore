@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# === Ignore for Assignment 2 ===
+
+# data files but not folder
+data/*
+!data/.gitkeep
+
+# config
+config.ini
