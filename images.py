@@ -1,23 +1,10 @@
+# system imports
 import json
 import requests
 import configparser
 
-
-def create_config_file(access_key='', secret_key=''):
-    """
-    Creates a config file for secret stuff. Option to provide keys.
-
-    Parameters:
-    access_key: Unsplash access key.
-    secret_key: Unsplash secret key.
-    """
-    config = configparser.ConfigParser()
-    config['UNSPLASH'] = dict(access_key=access_key, secret_key=secret_key)
-
-    with open('config.ini', 'w+') as configfile:
-        config.write(configfile)
-    
-    print('A new file is created. Please fill your access_key.')
+# local imports
+import utils
 
 
 def download_data():
@@ -37,8 +24,7 @@ def download_data():
         raise Exception('No key is provided, please get your key.')
 
     try:
-        cnt = 0
-        while(cnt < 1500):
+        for cnt in utils.progressbar(it=range(0, 1500, 30), prefix='Downloading'):
             response = requests.get(
                 f'https://api.unsplash.com/photos/random/?count=30', 
                 headers={
@@ -50,15 +36,13 @@ def download_data():
             
             if response.status_code == 200:
                 raw_json = json.loads(response.content)
-                cnt += len(raw_json)
                 images_list.extend(raw_json)
-                print(f'raw: {len(raw_json)} list: {len(images_list)}')
 
             elif response.status_code == 403:
-                print('api limit reached!')
+                print('Api limit reached!')
                 break
             else:
-                print('something went wrong!')
+                print('Something went wrong!')
                 break
         
     except KeyboardInterrupt:
