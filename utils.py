@@ -1,3 +1,17 @@
+"""
+Utility Functions
+=====================
+A list of helper functions for assignment2.
+
+Usage
+
+``` py
+import utils
+
+# creates an empty config file.
+utils.create_config_file()
+```
+"""
 import os
 import sys
 import configparser

@@ -1,3 +1,17 @@
+"""
+Image Handler Functions
+=========================
+A set of functions to download data, images, and process images.
+
+Usage:
+
+``` py
+import images
+
+# downloads data in JSON format
+images.download_data()
+```
+"""
 # system imports
 import json
 import requests
@@ -50,5 +64,5 @@ def download_data():
     except Exception as ex:
         print('Something went wrong', ex)
     finally:
-        with open('data/data3.json', 'w+') as writer:
+        with open('data/data4.json', 'w+') as writer:
             json.dump(images_list, writer, indent=4)
