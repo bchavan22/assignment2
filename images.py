@@ -18,6 +18,9 @@ import pathlib
 import requests
 import datetime
 import configparser
+
+# package imports
+from PIL import Image
 import pandas as pd
 
 # local imports
@@ -97,12 +100,15 @@ def get_df():
     return pd.DataFrame(images_list)
 
 
-def download_images(quality='raw'):
+def download_images(quality='regular'):
     """
     Downloads images from given image 
     
     Parameters:
     quality : Options are raw | full | regular | small | thumb
+
+    For more information about quality, check unsplash documentation at
+    https://unsplash.com/documentation#example-image-use
     """
     images_list, json_files = _get_image_files_list()
     
@@ -111,16 +117,48 @@ def download_images(quality='raw'):
         len(images_list), len(json_files)))
     print('This may take a while.')
 
-    # download images
+    # download images -  this is where downloading happens
     for image in utils.progressbar(it=images_list, prefix='Downloading '):
         id = image['id']
-        url_raw = image['urls']['raw']
+        url_quality = image['urls'][quality]
         image_path = pathlib.Path(f'data/images/{id}.jpg')
         if not image_path.exists():
-            response = requests.get(url_raw, stream=True)
+            response = requests.get(url_quality, stream=True)
             if response.status_code == 200:
                 with open(image_path, 'wb') as f:
                     f.write(response.content)
 
+    # final
+    print('Done!')
+
+
+def create_thumbnail(size=(128, 128)):
+    """
+    create resized version of the image path given, with the same name 
+    extended with _thumbnail.
+    """
+    images_list, json_files = _get_image_files_list()
+    Image.MAX_IMAGE_PIXELS = None
+
+    # print information
+    print('Found {0} images in {1} files. Starting for processing...'.format(
+        len(images_list), len(json_files)))
+    print('This may take a while.')
+
+    # processing - this is where processing of an image happens
+    for image in utils.progressbar(it=images_list, prefix='Processing '):        
+        id = image['id']
+        image_path = pathlib.Path(f'data/images/{id}.jpg')
+
+        if image_path.exists():
+            # create thumbnail
+            image = Image.open(image_path.absolute())
+            image.thumbnail(size)
+
+            # save thumbnail
+            new_filename = image_path.parent.joinpath(
+                '{0}_thumbnail{1}'.format(image_path.stem, image_path.suffix))
+            image.convert('RGB').save(new_filename)
+    
     # final
     print('Done!')
