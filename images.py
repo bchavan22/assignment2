@@ -18,6 +18,7 @@ import pathlib
 import requests
 import datetime
 import configparser
+import pandas as pd
 
 # local imports
 import utils
@@ -71,18 +72,39 @@ def download_data():
             json.dump(images_list, writer, indent=4)
 
 
-def download_images():
+def _get_image_files_list():
     """
-    Downloads images from given image 
+    Get a list of all images from `data/json` folder.
     """
     images_list = []
     
     # find all images
-    json_files = list(pathlib.Path('data/json').glob('data*.json'))
+    json_files = sorted(pathlib.Path('data/json').glob('data*.json'))
     for json_file in json_files:
         with open(json_file, 'r') as reader:
             raw_json = json.load(reader)
             images_list.extend(raw_json)
+    
+    return images_list, json_files
+
+
+def get_df():
+    """
+    Returns a dataframe of the json in data/json folder.
+    """
+    images_list, json_files = _get_image_files_list()
+    
+    return pd.DataFrame(images_list)
+
+
+def download_images(quality='raw'):
+    """
+    Downloads images from given image 
+    
+    Parameters:
+    quality : Options are raw | full | regular | small | thumb
+    """
+    images_list, json_files = _get_image_files_list()
     
     # print information
     print('Found {0} images in {1} files. Starting to download...'.format(
@@ -93,9 +115,12 @@ def download_images():
     for image in utils.progressbar(it=images_list, prefix='Downloading '):
         id = image['id']
         url_raw = image['urls']['raw']
-        response = requests.get(url_raw, stream=True)
-        if response.status_code == 200:
-            with open(pathlib.Path(f'data/images/{id}.jpg'), 'wb') as f:
-                f.write(response.content)
+        image_path = pathlib.Path(f'data/images/{id}.jpg')
+        if not image_path.exists():
+            response = requests.get(url_raw, stream=True)
+            if response.status_code == 200:
+                with open(image_path, 'wb') as f:
+                    f.write(response.content)
 
-    return images_list
+    # final
+    print('Done!')
