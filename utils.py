@@ -1,3 +1,4 @@
+import os
 import sys
 import configparser
 
@@ -11,12 +12,22 @@ def create_config_file(access_key='', secret_key=''):
     secret_key: Unsplash secret key.
     """
     config = configparser.ConfigParser()
-    config['UNSPLASH'] = dict(access_key=access_key, secret_key=secret_key)
-
-    with open('config.ini', 'w+') as configfile:
-        config.write(configfile)
     
-    print('A new file is created. Please fill your access_key.')
+    if not os.path.exists('config.ini'):
+        config['UNSPLASH'] = dict(access_key=access_key, secret_key=secret_key)
+
+        with open('config.ini', 'w+') as configfile:
+            config.write(configfile)
+    
+        print('A new file is created. Please fill your access_key.')
+    else:
+        config.read('config.ini')
+        client_id = config.get('UNSPLASH', 'access_key', fallback='no_key')
+        
+        if client_id in (None, '', 'no_key'):
+            print('No key is provided. Please fill your key.')
+        else:
+            print('Config file setup properly.')
 
 
 def progressbar(it, prefix="", size=60, file=sys.stdout):
