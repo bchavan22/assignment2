@@ -47,7 +47,7 @@ Following are your list of tasks.
 
 - [ ] I created a developer account at [Unsplash Developers](https://unsplash.com/developers).
 - [ ] I run the notebook, after running the `Setup the Project` section, it created my `config.ini` file.
-- [ ] I added the `access_key` I got from [Unsplash Developers](https://unsplash.com/developers) website to my config file.
+- [ ] I added the `access_key` I got from [Unsplash Developers](https://unsplash.com/developers) website to my `config.ini` file.
 
 
 ### Exploratory Data Analysis Tasks:
