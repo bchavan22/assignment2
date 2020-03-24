@@ -26,9 +26,45 @@ TBD
 
 TBD
 
+### Creating a Developer Account 
+
+![unsplash-steps](unsplash.gif)
+
 ## Tasks
 
-TBD
+In this assignment, you are required to use parallel programming to do the two tasks already done in serial programming.
+
+1. Download images from internet
+2. Resize the images you download to thumbnails.
+
+As you will see, when you run the notebook, these tasks are already done using serial programming logic. However, you will see that, the execution of these tasks takes quite a lot of time. 
+
+Your mission, should you choose to accept it, to reduce these timings! 
+
+Following are your list of tasks.
+
+### Setup
+
+- [ ] I created a developer account at [Unsplash Developers](https://unsplash.com/developers).
+- [ ] I run the notebook, after running the `Setup the Project` section, it created my `config.ini` file.
+- [ ] I added the `access_key` I got from [Unsplash Developers](https://unsplash.com/developers) website to my config file.
+
+
+### Exploratory Data Analysis Tasks:
+
+- [ ] Explore the dataset 
+<!-- TODO: add more tasks -->
+
+### Downloading Images Tasks:
+
+- [ ] I have at least 1500 images with the min qualiy of `regular`.
+- [ ] Implemented downloading images with parallel programming logic.
+- [ ] Reduce the amount taken in serial way with parallel programming.
+
+### Resizing Images Tasks:
+
+- [ ] Implemented resizing with parallel programming logic.
+- [ ] Reduce the amount taken in serial way with parallel programming.
 
 ## What are All These Files?
 
@@ -36,6 +72,7 @@ TBD
 
 ## Your To-Do List for This Assignment
 
+- [ ] I **have completed** the checkmarks in [Tasks](#tasks) section.
 - [ ] My notebook(s) are well organized with headings, comments, that makes it visually appealing.
 - [ ] My notebook(s) have the results of my execution.
 - [ ] My notebook(s) are reproducible.
