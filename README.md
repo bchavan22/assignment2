@@ -52,8 +52,13 @@ Following are your list of tasks.
 
 ### Exploratory Data Analysis Tasks:
 
-- [ ] Explore the dataset 
-<!-- TODO: add more tasks -->
+- [ ] Print a sample from the dataset.
+- [ ] Create a histogram with at least 20 bins from `downloads` field. 
+- [ ] Describe the `likes` field. Do an outlier analysis on using [5 number summary](https://en.wikipedia.org/wiki/Five-number_summary).
+- [ ] Find the average size of image ratio of the whole dataset using `width` and `height`.
+- [ ] Find the unique number of `colors` of the dataset.
+- [ ] Replace all the `None` fields in the `description` field with `Not provided` text.
+- [ ] Expand `url` field into multiple columns.
 
 ### Downloading Images Tasks:
 
