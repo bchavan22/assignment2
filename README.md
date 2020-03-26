@@ -1,6 +1,6 @@
 # Assignment 2 - Parallel Programming with Python
 
-![header-image](carbon.png)
+![header-image](assets/carbon.png)
 
 Welcome!
 
@@ -16,7 +16,18 @@ TBD
 
 ### Concurrency vs Parallelism
 
-TBD
+Concurrency is running two tasks together. When a computer is able to run two tasks at the same time, or it looks as if it started together, we think tasks are running concurrent. While achieving concurrency, a computer may take advantage of[CPU time sharing](https://en.wikipedia.org/wiki/Time-sharing) feature of the operating system, where tasks wait each other and when one runs on the CPU and other on the queue.
+
+Parallelism is can be done on a task or a group of task together. It takes advantage of physical CPU cores of the infrastructure that the computer has, and assigns part of the task or seperate tasks to different CPUs.
+
+In [oracle docs](), concurrency is `a condition that exists when at least two threads are making progress. A more generalized form of parallelism that can include time-slicing as a form of virtual parallelism`. And, paralellism is 	
+`a condition that arises when at least two threads are executing simultaneously`.
+
+Concurrency                 | Parallelism
+:-------------------------: | :-------------------------:
+![concurrency](assets/concurrency.gif) |  ![parallel](assets/parallelism.gif)
+
+For more information on concurrency vs parallelism with python, check out this article on [Hackernoon](https://hackernoon.com/concurrent-programming-in-python-is-not-what-you-think-it-is-b6439c3f3e6a) written by [@melvinkcx](https://github.com/melvinkcx).
 
 ### Threading and Multiprocessing
 
@@ -28,7 +39,7 @@ TBD
 
 ### Creating a Developer Account 
 
-![unsplash-steps](unsplash.gif)
+![unsplash-steps](assets/unsplash.gif)
 
 ## Tasks
 
