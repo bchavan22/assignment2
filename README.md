@@ -120,14 +120,16 @@ Following are your list of tasks.
 
 ### Downloading Images Tasks:
 
+- [ ] I've run the existing code with the serial way and collected the timing information.
 - [ ] I have at least 1500 images with the min qualiy of `regular`.
 - [ ] Implemented downloading images with parallel programming logic.
-- [ ] Reduce the amount taken in serial way with parallel programming. (Your timing should definitely be reduced!)
+- [ ] Reduce the amount taken in serial way with parallel programming. (Your timing will definitely be reduced!)
 
 ### Resizing Images Tasks:
 
+- [ ] I've run the existing code with the serial way and collected the timing information.
 - [ ] Implemented resizing with parallel programming logic.
-- [ ] Reduce the amount taken in serial way with parallel programming. (Your timing should definitely be reduced!)
+- [ ] Reduce the amount taken in serial way with parallel programming. (Your timing will definitely be reduced!)
 
 ### Conclusion:
 
