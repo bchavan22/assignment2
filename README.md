@@ -12,7 +12,29 @@ The goal of this assignment is to teach you the difference between serial and pa
 
 ## Introductory Knowledge on Concepts
 
-TBD
+In order to do the parallel programming in the right way, we need to understand the type of problem we are dealing with first, to be able to find the right way to parallelize the task. Therefore, our first starting point is to understand the two different types of operations.
+
+### IO Bound
+
+[IO bound](https://en.wikipedia.org/wiki/I/O_bound) is when the ability to complete a task/ process is limited by the Input/ Output subsystem of the computer. This type may include the file system, networking, etc. IO bound therefore means, computer takes more time to request the data than to process it.
+
+- Downloading a file from internet.
+- Accessing a file/ folder from the computer.
+- Accessing a resource in the network.
+- Retreiving records from a database.
+
+IO bound considered to be an inherent problem since the begining of the time with computers :smirk:, but no worries, we are here to understand it to live with it.
+
+### CPU Bound
+
+[CPU bound](https://en.wikipedia.org/wiki/CPU-bound) is a process or a task that is limited by the speed of the CPU in a computer.
+
+For example, below is a list of examples for CPU bound.
+
+- Training a machine learning model.
+- Multiplying numbers, matrices.
+- Preprocessing a dataset, such as transforming columns.
+- Doing EDA on a dataset.
 
 ### Concurrency vs Parallelism
 
