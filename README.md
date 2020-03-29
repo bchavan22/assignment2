@@ -38,7 +38,7 @@ For example, below is a list of examples for CPU bound.
 
 ### Concurrency vs Parallelism
 
-Concurrency is running two tasks together. When a computer is able to run two tasks at the same time, or it looks as if it started together, we think tasks are running concurrent. While achieving concurrency, a computer may take advantage of[CPU time sharing](https://en.wikipedia.org/wiki/Time-sharing) feature of the operating system, where tasks wait each other and when one runs on the CPU and other on the queue.
+Concurrency is running two tasks together. When a computer is able to run two tasks at the same time, or it looks as if it started together, we think tasks are running concurrent. While achieving concurrency, a computer may take advantage of [CPU time sharing](https://en.wikipedia.org/wiki/Time-sharing) feature of the operating system, where tasks wait each other and when one runs on the CPU and other on the queue.
 
 Parallelism is can be done on a task or a group of task together. It takes advantage of physical CPU cores of the infrastructure that the computer has, and assigns part of the task or seperate tasks to different CPUs.
 
@@ -53,7 +53,17 @@ For more information on concurrency vs parallelism with python, check out this a
 
 ### Threading and Multiprocessing
 
-TBD
+To understand the difference of threading and multiprocessing, lets first have a look at what a thread and a process means.
+
+A thread is the execution of instructions in a given program. It is a subset of a process. It is considered as "lightweight process", since it shares the resources alloted for a process.
+
+A process is a program in execution by the computer. It holds a memory space, a disk space that is unique to the process itself. In a multiprocessing environment, multiple processes of the same task is executed in parallel. For example, creating multiple instance of an application, say, Calculator. Each instance of a calculator is a process.
+
+The **main difference** between the two is that threads share the same memory space, and processes not.
+
+Multithreading takes advantage of having multiple threads in a program. The advantage is the task in hand will be completed much faster if it is IO bound, where the CPU will process more parts of the instructions while all other threads are waiting for a network related delay.
+
+In multiprocessing, IO bound tasks won't be enough since the CPU has to wait for the data to be retreived from the network. However, it the data is already awailable, such as in CPU bound tasks, multiprocessing will be much much faster the total CPU power assigned to the task is much more.
 
 ### Packages in Python for Parallel Programming
 
@@ -70,6 +80,10 @@ Some of these packages are, but not limited to:
 - [concurrent.futures](https://docs.python.org/3.8/library/concurrent.futures.html)
 
 ### Creating a Developer Account 
+
+[Upsplash](https://unsplash.com/) is a website that shares freely awailable usable images. It is a nice website with all cool images from a lot of photographers. 
+
+We will use this website to build our dataset, using their [API](https://en.wikipedia.org/wiki/Application_programming_interface). Follow below how I created my developer account.
 
 ![unsplash-steps](assets/unsplash.gif)
 
@@ -102,17 +116,18 @@ Following are your list of tasks.
 - [ ] Find the unique number of `colors` of the dataset.
 - [ ] Replace all the `None` fields in the `description` field with `Not provided` text.
 - [ ] Expand `url` field into multiple columns.
+- [ ] You are welcome to do more EDA on this dataset.
 
 ### Downloading Images Tasks:
 
 - [ ] I have at least 1500 images with the min qualiy of `regular`.
 - [ ] Implemented downloading images with parallel programming logic.
-- [ ] Reduce the amount taken in serial way with parallel programming.
+- [ ] Reduce the amount taken in serial way with parallel programming. (Your timing should definitely be reduced!)
 
 ### Resizing Images Tasks:
 
 - [ ] Implemented resizing with parallel programming logic.
-- [ ] Reduce the amount taken in serial way with parallel programming.
+- [ ] Reduce the amount taken in serial way with parallel programming. (Your timing should definitely be reduced!)
 
 ### Conclusion:
 
@@ -136,6 +151,7 @@ Assignment2.ipynb   | Sample notebook as a reference for how your notebooks shou
 images.py           | Helper functions to do HW related tasks, all serial way.
 utils.py            | Helper functions to create config file, progress bar, etc.
 config.ini          | [Configuration file](https://en.wikipedia.org/wiki/INI_file) to connect Unsplash API.
+assets              | A set of images used in this README file. 
 data / images       | Folder to download images
 data / json         | Folder to download data files from Unsplash API.
 
@@ -145,4 +161,4 @@ data / json         | Folder to download data files from Unsplash API.
 - [ ] My notebook(s) are well organized with headings, comments, that makes it visually appealing.
 - [ ] My notebook(s) have the results of my execution.
 - [ ] My notebook(s) are reproducible.
-- [ ] I download the final version of my repository, and uploaded to the blackboard!
+- [ ] I download the final version of my repository, and uploaded to the [blackboard](https://saintpeters.blackboard.com/)!
