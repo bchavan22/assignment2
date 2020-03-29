@@ -35,7 +35,17 @@ TBD
 
 ### Packages in Python for Parallel Programming
 
-TBD
+There are many options to do parallel programming using python. You are more than welcome to choose any of those libraries including the standard packages. My advise is to test diffrent ones, so that you will cover more.
+
+Some of these packages are, but not limited to:
+
+- [Ray](https://github.com/ray-project/ray)
+- [Numba](http://numba.pydata.org/)
+- [Modin](https://github.com/modin-project/modin)
+- [Dask](https://dask.org/)
+- [multiprocessing](https://docs.python.org/3.8/library/multiprocessing.html)
+- [threading](https://docs.python.org/3.8/library/threading.html)
+- [concurrent.futures](https://docs.python.org/3.8/library/concurrent.futures.html)
 
 ### Creating a Developer Account 
 
