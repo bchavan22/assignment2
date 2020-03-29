@@ -137,3 +137,6 @@ data/**/*.*
 
 # config
 config.ini
+
+# mac
+.DS_Store
