@@ -159,7 +159,8 @@ data / json         | Folder to download data files from Unsplash API.
 
 ## Your To-Do List for This Assignment
 
-- [ ] I **have completed** all the checkmarks in [tasks](#tasks) section.
+- [ ] I **have completed** all the tasks in [tasks](#tasks) section.
+- [ ] I edit this README file and checkmarked things I've completed in the tasks section.
 - [ ] My notebook(s) are well organized with headings, comments, that makes it visually appealing.
 - [ ] My notebook(s) have the results of my execution.
 - [ ] My notebook(s) are reproducible.
