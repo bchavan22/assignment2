@@ -102,7 +102,7 @@ def get_df():
 
 def download_images(quality='regular'):
     """
-    Downloads images from given image 
+    Downloads images from given image quality.
     
     Parameters:
     quality : Options are raw | full | regular | small | thumb
@@ -122,7 +122,7 @@ def download_images(quality='regular'):
         id = image['id']
         url_quality = image['urls'][quality]
         image_path = pathlib.Path(f'data/images/{id}.jpg')
-        if not image_path.exists():
+        if image_path.exists():
             image_path.unlink()
         response = requests.get(url_quality, stream=True)
         if response.status_code == 200:
@@ -135,7 +135,7 @@ def download_images(quality='regular'):
 
 def create_thumbnail(size=(128, 128)):
     """
-    create resized version of the image path given, with the same name 
+    Create resized version of the image path given, with the same name 
     extended with _thumbnail.
     """
     images_list, json_files = _get_image_files_list()
