@@ -123,10 +123,11 @@ def download_images(quality='regular'):
         url_quality = image['urls'][quality]
         image_path = pathlib.Path(f'data/images/{id}.jpg')
         if not image_path.exists():
-            response = requests.get(url_quality, stream=True)
-            if response.status_code == 200:
-                with open(image_path, 'wb') as f:
-                    f.write(response.content)
+            image_path.unlink()
+        response = requests.get(url_quality, stream=True)
+        if response.status_code == 200:
+            with open(image_path, 'wb') as f:
+                f.write(response.content)
 
     # final
     print('Done!')
